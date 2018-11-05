@@ -28,7 +28,7 @@ module.exports = () => {
       const serverTime = this.response.get('X-Server-Response-Time') || '-';
       const message = util.format('[access] %s:%s - %s %s %s/%s %s %s %s %s %s',
         ip, port, method, url, protocol, status, length, referrer, rs, serverTime, ua);
-      this.logger.info(message);
+      // this.logger.info(message);
     }
   };
 };

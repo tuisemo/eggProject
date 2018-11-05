@@ -4,7 +4,10 @@ const Controller = require('egg').Controller;
 
 class HomeController extends Controller {
   async index() {
-    this.ctx.body = 'hi, egg';
+    const data = await this.ctx.service.cnode.getTopics()
+    console.log(data)
+    this.ctx.body = data;
+    // await this.ctx.render('index.njk', {html:data});
   }
   async list(){
     // const dataList = {

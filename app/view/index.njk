@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="/public/css/base.css" />
   </head>
   <body>
+  {{html | safe }}
   {{helper.formatDate(1541408770965)}}
     <ul class="news-view view">
       {% for item in list %}
