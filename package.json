@@ -1,5 +1,5 @@
 {
-  "name": "example",
+  "name": "eggProject",
   "version": "1.0.0",
   "description": "",
   "private": true,
@@ -23,8 +23,8 @@
     "node": ">=8.9.0"
   },
   "scripts": {
-    "start": "egg-scripts start --daemon --title=egg-server-example",
-    "stop": "egg-scripts stop --title=egg-server-example",
+    "start": "egg-scripts start --daemon --title=egg-server-eggProject",
+    "stop": "egg-scripts stop --title=egg-server-eggProject",
     "dev": "egg-bin dev",
     "debug": "egg-bin debug",
     "test": "npm run lint -- --fix && npm run test-local",
