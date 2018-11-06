@@ -6,7 +6,7 @@
   </Layout>
 </template>
 <script type="text/babel">
-  import Layout from 'component/layout/app/index.vue';
+  import Layout from 'components/layout/app/index.vue';
   export default {
     components: {
       Layout

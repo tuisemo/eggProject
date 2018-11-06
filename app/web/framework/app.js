@@ -16,6 +16,9 @@ export default class App {
   }
 
   create(initState) {
+    /**
+     * 初始化vue实例
+     */
     const { index, options, createStore, createRouter } = this.config;
     const store = createStore(initState);
     const router = createRouter();
@@ -29,7 +32,12 @@ export default class App {
   }
 
   client() {
+    // 客户端渲染
     Vue.prototype.$http = require('axios');
+    /**
+     * 以下链接地址解释了为什么出现window.__INITIAL_STATE__
+     * https://github.com/vuejs/vue-hackernews-2.0/issues/110
+     */
     const options = this.create(window.__INITIAL_STATE__);
     const app = new Vue(options);
     app.$mount('#app');
@@ -37,6 +45,7 @@ export default class App {
   }
 
   server() {
+    // 服务端渲染
     return context => {
       const options = this.create();
       const { store, router } = options;

@@ -4,7 +4,7 @@ module.exports = app => {
   const exports = {};
 
   exports.siteFile = {
-    '/favicon.ico': fs.readFileSync(path.join(app.baseDir, 'app/web/asset/images/favicon.ico'))
+    '/favicon.ico': fs.readFileSync(path.join(app.baseDir, 'app/web/assets/images/favicon.ico'))
   };
 
   exports.view = {

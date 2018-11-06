@@ -6,7 +6,7 @@ module.exports = {
     app: 'app/web/page/app/index.js'
   },
   alias: {
-    component: 'app/web/component',
+    components: 'app/web/components',
     framework: 'app/web/framework',
     store: 'app/web/store',
     vue: 'vue/dist/vue.esm.js',
@@ -15,8 +15,8 @@ module.exports = {
   loaders: {},
   plugins: {
     copy: [{
-      from: 'app/web/asset/css/bootstrap.min.css',
-      to: 'asset/css/bootstrap.min.css'
+      from: 'app/web/assets/css/bootstrap.min.css',
+      to: 'assets/css/bootstrap.min.css'
     }]
   },
   done() {
