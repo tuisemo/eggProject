@@ -1,28 +1,39 @@
-'use strict';
-
-module.exports = appInfo => {
+const path = require('path');
+const fs = require('fs');
+module.exports = app => {
   const exports = {};
 
-  // use for cookie sign key, should change to your own and keep security
-  exports.keys = appInfo.name + '_1541398920146_4382';
-  
-  exports.accesstoken = 'bfa08244-b855-4cb9-b339-f729ce2c00dd';
-
-  // 配置需要的中间件，数组顺序即为中间件的加载顺序
-  exports.middleware = ['access'];
-
-  // 页面模板引擎
-  exports.view = {
-    defaultViewEngine: 'nunjucks',
-    mapping: {
-      '.njk': 'nunjucks',
-    },
+  exports.siteFile = {
+    '/favicon.ico': fs.readFileSync(path.join(app.baseDir, 'app/web/asset/images/favicon.ico'))
   };
 
-  // 静态数据代理服务
-  exports.proxys={
-    host:'https://cnodejs.org/api/v1'
-  }
+  exports.view = {
+    cache: false
+  };
+
+  exports.vuessr = {
+    layout: path.join(app.baseDir, 'app/web/view/layout.html'),
+    renderOptions: {
+      // 告诉 vue-server-renderer 去 app/view 查找异步 chunk 文件
+      basedir: path.join(app.baseDir, 'app/view')
+    }
+  };
+
+  exports.logger = {
+    consoleLevel: 'DEBUG',
+    dir: path.join(app.baseDir, 'logs')
+  };
+
+  exports.static = {
+    prefix: '/public/',
+    dir: path.join(app.baseDir, 'public')
+  };
+
+  exports.keys = '123456';
+
+  exports.middleware = [
+    'access'
+  ];
 
   return exports;
 };

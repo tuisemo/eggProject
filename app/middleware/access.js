@@ -14,7 +14,7 @@ module.exports = () => {
 
     const ext = path.extname(this.url).toLocaleLowerCase();
     const isSkip = skipExt.indexOf(ext) !== -1 && this.status < 400;
-    // 使用该中间件打印除静态资源外的请求情况
+
     if (!isSkip) {
       const ip = this.get('X-Real-IP') || this.ip;
       const port = this.get('X-Real-Port');
@@ -28,7 +28,7 @@ module.exports = () => {
       const serverTime = this.response.get('X-Server-Response-Time') || '-';
       const message = util.format('[access] %s:%s - %s %s %s/%s %s %s %s %s %s',
         ip, port, method, url, protocol, status, length, referrer, rs, serverTime, ua);
-      // this.logger.info(message);
+      this.logger.info(message);
     }
   };
 };
