@@ -19,7 +19,7 @@ class CnodeService extends Service {
                 page: params.page || 1,
                 tab: params.tab || 'good',
                 limit: params.limit || 10,
-                mdrender: params.mdrender || 'true',
+                mdrender: params.mdrender || 'false',
             },
             dataType: 'json',
         });
